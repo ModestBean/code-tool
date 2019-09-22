@@ -1,12 +1,25 @@
-original_image = imread('saturn.png');
-fft_image=fft2(im2double(original_image)); 
-fft_image=fftshift(fft_image); 
-fft_image=real(fft_image);
-T=log(fft_image+1);
-subplot(1,2,1);
-imshow(original_image);
-title('original_image');
+clc;
+clear;
+original_image=imread('saturn.png');    
+subplot(221);
+imshow(original_image);  
+fft_image_t = returnFftImage(original_image);
+subplot(222);          
+imshow(fft_image_t,[]);           
 
-subplot(1,2,2);
-imshow(T,[]);
-title('fft_image');
+original_image=imread('football.jpg');    
+subplot(223);
+imshow(original_image);  
+fft_image_t = returnFftImage(original_image);
+subplot(224);          
+imshow(fft_image_t,[]);     
+
+% retrun fft_image 
+function [fft_image_t] = returnFftImage(original_image)
+original_image=rgb2gray(original_image);         
+original_image=im2double(original_image);        
+fft_image=fft2(original_image);          
+fft_image=fftshift(fft_image);      
+fft_image=abs(fft_image);            
+fft_image_t=log(fft_image+1);
+end

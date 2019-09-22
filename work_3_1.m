@@ -1,10 +1,12 @@
 % unsharp
+clear all
+close all
 original_image = imread('Westconcordorthophoto.png');
 subplot(321);
 imshow(original_image)
 title('original_image');
 
-unsharp_image = imsharpen(a);
+unsharp_image = imsharpen(original_image);
 subplot(322);
 imshow(unsharp_image)
 title('unsharp_image');

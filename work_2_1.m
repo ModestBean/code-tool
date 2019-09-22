@@ -1,30 +1,47 @@
-I=imread('liftingbody.png');
-I0 = I;
-subplot(231);
-imshow(I);
-
-BW1=edge(I0,'Prewitt',0.16);
-subplot(232);
-imshow(BW1);
+% edge extract 
+clear all
+close all
+original_image=imread('liftingbody.png');
+subplot(521);
+imshow(original_image);
+title('original_image')
+edge_image=edge(original_image,'Prewitt',0.16);
+subplot(522);
+imshow(edge_image);
 title('prewitt')
 
-
-BW2=edge(I0,'Sobel',0.16);
-subplot(233);
-imshow(BW2);
+original_image=imread('tire.tif');
+subplot(523);
+imshow(original_image);
+title('original_image')
+edge_image=edge(original_image,'Sobel',0.16);
+subplot(524);
+imshow(edge_image);
 title('Sobel')
 
-BW3=edge(I0,'LOG',0.012);
-subplot(234);
-imshow(BW3);
-title('laplacian');
+original_image=imread('spine.tif');
+subplot(525);
+imshow(original_image);
+title('original_image')
+edge_image=edge(original_image,'LOG',0.001);
+subplot(526);
+imshow(edge_image);
+title('laplacian')
 
-BW4=edge(I0,'Roberts',0.16);
-subplot(235);
-imshow(BW4);
+original_image=imread('eight.tif');
+subplot(527);
+imshow(original_image);
+title('original_image')
+edge_image=edge(original_image,'Roberts',0.16);
+subplot(528);
+imshow(edge_image);
 title('Roberts')
 
-BW5=edge(I0,'Canny',0.2);
-subplot(236);
-imshow(BW5);
+original_image=imread('cell.tif');
+subplot(529);
+imshow(original_image);
+title('original_image')
+edge_image=edge(original_image,'Canny',0.2);
+subplot(5,2,10);
+imshow(edge_image);
 title('Canny')
