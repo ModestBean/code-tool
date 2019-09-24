@@ -1,14 +1,13 @@
-% ¸ßË¹Ä£ºı´úÂëĞŞ¸Ä
+% ï¿½ï¿½Ë¹Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ş¸ï¿½
 clear all
-close all
 original_image=imread('football.jpg');
-h=fspecial('Gaussian',[5,5],5);  %Arbitrary FIR filter¼´ÈÎÒâFIRÂË²¨Æ÷
+h=fspecial('Gaussian',[5,5],5);  %Arbitrary FIR filterï¿½ï¿½ï¿½ï¿½ï¿½ï¿½FIRï¿½Ë²ï¿½ï¿½ï¿½
 figure(1);
-imshow(original_image); %ÏÔÊ¾Ô­Ê¼Í¼
+imshow(original_image); %ï¿½ï¿½Ê¾Ô­Ê¼Í¼
 figure(2);
 image1=imfilter(original_image,h);
 imshow(image1);
 h1=fspecial('Gaussian',[5,5],30);
 figure(3);
-image2=imfilter(original_image,h1,'same'); %zero-padding ÁãÌî³ä
+image2=imfilter(original_image,h1,'same'); %zero-padding ï¿½ï¿½ï¿½ï¿½ï¿½
 imshow(image2);
