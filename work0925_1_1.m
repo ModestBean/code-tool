@@ -5,7 +5,7 @@
 
 clc;
 clear;
-original_image=imread('coins.png'); 
+original_image=imread('blurry_moon_1.tif'); 
 
 % 加法运算 +30 常用于多张图像计算平均图像
 arithmetic_image = imadd(original_image, 30);
