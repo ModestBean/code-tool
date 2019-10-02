@@ -29,15 +29,14 @@ else
     xT = soln(2);
 end
 
-y = k*xT + b;
-
-b2 = y-k2 * xT; %得到直线截距
+yT = k*xT + b;
+b2 = yT-k2 * xT; %得到直线截距
 x1 = 0; %任意求出直线上两点，用于画线
 y1 = k2*x1+b2;
 x2 = 60;
 y2 = k2*x2+b2;
 hold on
-plot([x1,x2],165 - [y1,y2],'Color','r','LineWidth',2)
+line([x1,x2],[y1,y2],'Color','r','LineWidth',2)
 
 
 % J=reshape(R, M*N, 1); 

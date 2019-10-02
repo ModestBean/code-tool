@@ -1,4 +1,3 @@
-%
 % @author 憨豆酒 YinDou
 % @date 20190930
 % @description 创建自定义索引图像
