@@ -37,7 +37,7 @@ y1 = k2*x1+b2;
 x2 = 60;
 y2 = k2*x2+b2;
 hold on
-plot([x1,x2],[y1,y2],'Color','r','LineWidth',2)
+plot([x1,x2],165 - [y1,y2],'Color','r','LineWidth',2)
 
 
 % J=reshape(R, M*N, 1); 
