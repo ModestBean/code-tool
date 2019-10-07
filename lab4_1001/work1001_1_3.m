@@ -41,9 +41,7 @@ if soln(1)<=0
 else
     xT = soln(2);
 end
-
 yT = k*xT;
-
 y1 = 0.0;
 x1 = (height_half - y1 - yT)/k2 + xT + width_half;
 y2 = 165.0;
@@ -51,9 +49,9 @@ x2 = (height_half - y2 - yT)/k2 + xT + width_half;
 hold on;
 line([x1, x2],[y1,y2],'color','r','LineWidth',1);  % 定位直线
 
-% figure
-% imagesc(theta, xp, R); colormap(hot);
-% xlabel('\theta (degrees)');
-% ylabel('x^{\prime} (pixels from center)');
-% title('R_{\theta} (x^{\prime})');
-% colorbar
+figure
+imagesc(theta, xp, R); colormap(hot);
+xlabel('\theta (degrees)');
+ylabel('x^{\prime} (pixels from center)');
+title('R_{\theta} (x^{\prime})');
+colorbar
