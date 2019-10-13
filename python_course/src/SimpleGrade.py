@@ -10,6 +10,7 @@
 class SimpleGrade(object):
     """
     把学生的名字都放到字典里，不用把每个学生都表示成对象，也不需要再对象中预设一个存放姓名的属性name
+    此种方式是对Student类的改进，不在每个学生创建对象
     """
     def __init__(self):
         self._grades = {}
