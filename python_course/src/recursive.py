@@ -24,12 +24,12 @@ def factorial(n):
 if __name__ == "__main__":
     num = 3
 
-    sum = 0
+    sum_num = 0
     for i in range(1, num + 1):
         sum += loop(i)
-    print('loop: sum is ' + str(sum))
+    print('loop: sum is ' + str(sum_num))
 
-    sum = 0
+    sum_num = 0
     for i in range(1, num + 1):
         sum += factorial(i)
-    print('factorial: sum is ' + str(sum))
+    print('factorial: sum is ' + str(sum_num))
