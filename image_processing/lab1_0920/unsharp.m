@@ -1,5 +1,5 @@
 % unsharp
-clear all
+clear 
 close all
 original_image = imread('Westconcordorthophoto.png');
 subplot(321);

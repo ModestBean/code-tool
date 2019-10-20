@@ -1,5 +1,5 @@
 % average symmetric
-clear all
+clear 
 close all
 original_image=imread('coins.png');
 h=fspecial('average',5); % return an averaging filter H of HSIZE.
