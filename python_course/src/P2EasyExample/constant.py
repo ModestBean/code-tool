@@ -1,4 +1,11 @@
 # coding:utf-8
+"""
+@author 憨豆酒 YinDou yindou97@163.com https://modestbean.github.io/
+@date 20191021
+@description 常量类，Python没有const修饰符，不像Java，需要自定义常量类。
+参考链接：https://www.cnblogs.com/ydcode/p/10996791.html
+"""
+
 import sys
 
 

@@ -3,7 +3,7 @@
 """
 @author 憨豆酒 YinDou yindou97@163.com https://modestbean.github.io/
 @date 20191021
-@description 上一个企业提成的优化版本
+@description 上一个企业提成问题的优化版本
 """
 
 

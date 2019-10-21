@@ -1,5 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
+"""
+@author 憨豆酒 YinDou yindou97@163.com https://modestbean.github.io/
+@date 20191021
+@description 学生成绩管理系统
+"""
 
 import constant
 
