@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 """
-@author 憨豆酒 YinDou https://modestbean.github.io/
+@author 憨豆酒 YinDou yindou97@163.com https://modestbean.github.io/
 @date 20191013
 @description 分别使用循环、递归来计算1!+2!+3!+4!+...+n!的值
 """
