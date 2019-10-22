@@ -35,13 +35,10 @@ def find_student():
     elif x == "2":
         name = input("Please enter the name of the student you are looking for：")
         for items in student:
-            flag = True
             if items["name"] == name:
                 print("%s success！information：%s" % (name, items))
                 break
             else:
-                flag = False
-            if not flag:
                 print("%s information is not exist! " % name)
 
 
