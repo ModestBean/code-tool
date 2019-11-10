@@ -16,11 +16,11 @@ for x = 1 : M
           I2(x, y, 1) = 255;
       end
       if I(x, y) <= 63                                  % G
-          I2(x, y, 2) = 254 - 4 * I(x, y);
+          I2(x, y, 2) = 4 * I(x, y);
       elseif I(x, y) <= 127
-          I2(x, y, 2) = 4 * I(x, y) - 254;
-      elseif I(x, y) <= 191
           I2(x, y, 2) = 255;
+      elseif I(x, y) <= 191
+          I2(x, y, 2) = -4 * I(x, y) + 1020;
       else
           I2(x, y, 2) = 1022 - 4 * I(x, y);
       end

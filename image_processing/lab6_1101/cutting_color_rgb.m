@@ -4,15 +4,15 @@
 rgb = imread('onion.png');
 figure(1), imshow(rgb);
 [n, m, k] = size(rgb);
-a = [255, 200, 0];
-bg = [200, 200, 250];
+target_pixel = [255, 200, 0];
+background = [200, 200, 250];
 w = 64;
-v = zeros(1, 3);
+every_pixel = zeros(1, 3);
 for i = 1 : n
   for j = 1 : m
-       v(1 : 3) = rgb(i, j, 1 : 3);
-      if(norm(v - a) > w ) 
-           rgb(i, j, 1 : 3) = bg; 
+       every_pixel(1 : 3) = rgb(i, j, 1 : 3);
+      if(norm(every_pixel - target_pixel) > w ) 
+           rgb(i, j, 1 : 3) = background; 
       end
   end
 end
