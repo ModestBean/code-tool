@@ -17,10 +17,9 @@ target_pixel_S_min = 0.4; % 目标S通道最小值
 target_pixel_B = 1; % 目标B通道
 
 background = [0.0, 0.0, 0.5];
-w = 0.001;
 for i = 1 : n
     for j = 1 : m
-        H = hsv(i, j ,1); % 原图H
+      H = hsv(i, j ,1); % 原图H
       S = hsv(i, j, 2); % 原图S
       B = hsv(i, j, 3); % 原图B
       % 过滤掉其他颜色，只保留橙色 橙色B为1，H范围是30~54，S范围为40~100
