@@ -7,7 +7,7 @@
 clc;
 close all;
 clear;
-img = imread('./Data/low.png'); % 读取原图像
+img = imread('./Data/hight.png'); % 读取原图像
 figure, imshow(img), title('原始图像');
 grayimg = rgb2gray(img);
 BWimg = grayimg;
