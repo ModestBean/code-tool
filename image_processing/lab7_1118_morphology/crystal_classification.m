@@ -9,60 +9,70 @@
 clc;
 close all;
 clear;
-img_stack = cell(7);
-for i = 1 : 7
-    image_name = strcat(num2str(i),'.png');
-    img_stack{i} = imread(strcat('./Data/MiddleQuality/[2]1/', image_name));
-end
-img = imread('./Data/hight.png'); % 读取原图像
-figure, imshow(img_stack{2}), title('原始图像');
 
-% grayimg = rgb2gray(img);
-% BWimg = grayimg;
-% [width, height] = size(grayimg);
-% figure, imshow(grayimg), title('灰度图像');
-% crystal_length = length(grayimg(grayimg ~= 255)); % 获取晶体总像素点个数
-% % 二值化，< 80 纯白色 >= 80 纯黑色  
-% T1 = 80;
-% for i = 1 : width
-%     for j = 1 : height
-%         if(grayimg(i, j) < T1)
-%             BWimg(i, j) = 255;
-%         else 
-%             BWimg(i, j) = 0;
-%         end
-%     end
-% end
-% figure, imshow(BWimg), title('二值化后图像');
-% % 先闭运算 再开运算
-% se = strel('disk', 5);
-% BWimg = imclose(BWimg, se);
-% BWimg = imopen(BWimg, se);
-% figure, imshow(BWimg), title('闭关运算后的图像');
-% crystal__no_light_length = length(BWimg(BWimg == 255)); % 获取发光像素点个数
-% % 统计标注连通域
-% [mark_image, num] = bwlabel(BWimg, 4); 
-% status = regionprops(mark_image, 'BoundingBox');
-% centroid = regionprops(mark_image, 'Centroid');
-% figure;
-% imshow(mark_image);title('标记后的图像');
-% 
-% all_area = 0; % 总面积
-% all_perimeter = 0; % 总周长
-% for i = 1 : num
-%     % 绘制窗体和数字
-%     rectangle('position', status(i).BoundingBox, 'edgecolor', 'r');
-%     text(centroid(i, 1).Centroid(1, 1), centroid(i, 1).Centroid(1, 2), num2str(i), 'Color', 'r') 
-%     % 计算感兴趣区域周长和面积
-%     image_part = (mark_image == i);
-%     area_result = regionprops(image_part, 'Area');
-%     perimeter_result = regionprops(image_part, 'Perimeter');
-%     all_area = all_area + area_result.Area;
-%     all_perimeter = all_perimeter + perimeter_result.Perimeter;
-% end
-% % 计算发光比值
-% proportion = ((crystal_length - crystal__no_light_length) / crystal_length) * 100;
-% 
-% fprintf('all_proportion = %f%%\n', proportion);
-% fprintf('all_area = %f\n', all_area);
-% fprintf('all_perimeter = %f\n', all_perimeter);
+
+% 读取不同投影方向图像
+img_stack = cell(7);
+input_path =  './Data/LowQuality/[0]5/'; % 存储图像的路径
+%input_path =  './Data/MiddleQuality/[2]5/'; % 存储图像的路径
+%input_path =  './Data/HightQuality/[5]1/'; % 存储图像的路径
+file_ext = '*.png'; % 待读取图像的后缀名
+%获取所有路径
+files = dir(fullfile(input_path,file_ext)); 
+len = size(files,1);
+%遍历路径下每一幅图像
+low_num = 0;
+middle_num = 0;
+height_num = 0;
+for i=1:len
+   filename = strcat(input_path,files(i).name); 
+   img_stack{i} = imread(filename);
+   one_direction_proportion = calculate_proportion(img_stack{i});
+   if one_direction_proportion <= 15
+       low_num = low_num + 1;
+   elseif one_direction_proportion <= 40
+       middle_num = middle_num + 1;
+   elseif one_direction_proportion <= 80
+       height_num = height_num + 1;
+   end
+   fprintf('one_direction_proportion = %f%%\n', one_direction_proportion);
+end
+% 打印当前水晶品质
+if low_num >= 4
+    fprintf('当前为低等级水晶%d', low_num);
+elseif middle_num >=4
+    fprintf('当前为中等级水晶%d', middle_num);
+elseif height_num >=4
+    fprintf('当前为高等级水晶%d', height_num);
+end
+
+
+
+% 计算每个投影方向图像发光度的方法
+% input：原始图像
+% output：图像发光度
+function one_direction_proportion = calculate_proportion(img)
+    gray_img = rgb2gray(img);
+    BWimg = gray_img;
+    [width, height] = size(gray_img);
+    % 获取晶体总像素点个数
+    crystal_length = length(gray_img(gray_img ~= 255)); 
+    % 二值化
+    T1 = 55;
+    for i = 1 : width
+        for j = 1 : height
+            if(gray_img(i, j) < T1)
+                BWimg(i, j) = 255;
+            else 
+                BWimg(i, j) = 0;
+            end
+        end
+    end
+    % 先闭运算 再开运算
+    se = strel('disk', 5);
+    BWimg = imclose(BWimg, se);
+    BWimg = imopen(BWimg, se);
+    % 获取不发光像素点个数
+    crystal__no_light_length = length(BWimg(BWimg == 255)); 
+    one_direction_proportion = ((crystal_length - crystal__no_light_length) / crystal_length) * 100;
+end
