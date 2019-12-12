@@ -32,4 +32,4 @@ for row = 1 : s(1)
     if is_get_first_pixel
         break;
     end
-end
+end 

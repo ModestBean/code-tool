@@ -1,4 +1,4 @@
-f = imread('./tron.bmp');
+f = imread('./triangle_test.png');
 g = rgb2gray(f);
 % f = imbinarize(f);
 % g = f;
