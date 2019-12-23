@@ -1,7 +1,7 @@
 % Chenming DU for Digital Image Processing 06.10.2019
 % Read grayscale,truecolor and indexed images using functions.
 close all
-clear all
+clear
 subplot(331);
 C=imread('autumn.tif');  
 image(C);
