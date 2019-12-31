@@ -1,8 +1,9 @@
 % @author 憨豆酒 YinDou yindou97@163.com
 % @date 20191002
 % @description 相关和傅里叶变换 从图像中读取图案
+
 clc;
-clear all;
+clear;
 close all;
 % 读取logo图像
 I = imread('logo.png'); 
@@ -64,5 +65,3 @@ figure(7); plot(R(:,ky)),grid;
 % 显示I中的字母位置
 figure(10);imshow(I(kx:kx+nj,ky:ky+mj));
 title('Search Image result');
-
-
