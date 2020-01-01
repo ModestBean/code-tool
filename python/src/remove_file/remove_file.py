@@ -3,7 +3,6 @@
 @author 憨豆酒 YinDou yindou97@163.com https://modestbean.github.io/
 @description 根据图像url，爬取图像
 @version 1 author：YinDou 20191231 将不同文件夹内容整合到同一文件夹下
-@version 2
 """
 
 import os
