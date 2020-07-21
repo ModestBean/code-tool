@@ -1,0 +1,54 @@
+
+****************************** Start at: 2020-07-20 18.57.13
+
+num_threads: 160
+  dimension: 3
+_WIN64
+NEGLECT_NEGATIVE_PRESSURE
+num fluids: 1
+num rigids: 1 (rigid:1<1static> soft:0)
+num candidates: 1
+num fluid particles: 1
+num boundary particles: 25921
+num candidates particles: 40227
+num total particles: 66149
+
+------------------------------ parameters ------------------
+spacing_r: 0.05
+smoothRadius_h: 0.1
+spaceMin: -8 -8 -8
+spaceMax: 8 12 8
+dt: 0.0005
+gravity_g: 0 -9.8 0
+densityErro_eta: 0.01
+soundSpeed_cs: 100
+------------------------------<< fluid 0 >>
+restDensity_rho0: 1000
+viscosity_alpha: 0.05
+surfaceTension_gamma: 1
+fluidParticles.size(): 1
+------------------------------<< solid 0 >>
+dynamic: 0
+type: 0
+viscosity_alpha: 0.05
+boundaryParticles.size(): 25921
+innerPositions.size(): 25921
+mbtSolid_ptr: 0000021BD6106020
+------------------------------ parameters ------------------
+
+--------------------- IISPH ---------
+m_DensityPower_gamma: 7
+--------------------- IISPH ---------
+
+
+
+total sph steps: 40011
+ total sph time: 20.0003
+  error count(ZeroDis): 0
+error count(ManyNeigb): 0
+      hash code of pos: 0
+
+****************************** End at: 2020-07-20 22.41.15
+
+
+Number	Time	FluidNums	CandidateNums	Search		Weight	Pressure	Force	adaptiveDt	upFluid	upRigid	DT
