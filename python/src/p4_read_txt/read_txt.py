@@ -19,14 +19,18 @@ def main():
         fluid_num.append(float(every_line[2]))
         candidate_num.append(float(every_line[3]))
         frame_index.append(float(every_line[1]) * video_fps)
+        if float(every_line[0]) > 8000:
+            break
 
     plt.rcParams['font.sans-serif'] = ['SimHei']  # 用来正常显示中文标签
     plt.rcParams['axes.unicode_minus'] = False  # 用来正常显示负号
     x = np.array(frame_index)
-    y1 = np.array(fluid_num)
-    y2 = np.array(candidate_num)
-    plt.plot(x, y1, color='red', label='流体粒子数')
-    plt.plot(x, y2, color='blue', label='固体粒子数+临界状态粒子数')
+    y1 = np.array(candidate_num)
+    y2 = np.array(fluid_num)
+    plt.plot(x, y1, color='red', label='固体粒子数+临界状态粒子数')
+    plt.plot(x, y2, color='blue', label='流体粒子数')
+    plt.xlabel('帧')
+    plt.ylabel('粒子数')
     plt.legend()
     plt.show()
 
